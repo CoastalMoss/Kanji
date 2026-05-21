@@ -80,25 +80,47 @@ tab1, tab2 = st.tabs(["Flashcards", "Sentence Translation"])
 with tab1:
     st.header("Vocab Flashcard")
     
+    # 1. Callback function to reset the card if the user changes direction mid-guess
+    def reset_card():
+        st.session_state.flipped = False
+
+    # 2. Add the radio button for direction selection
+    direction = st.radio(
+        "Guessing direction:", 
+        ["Italian ➔ Japanese", "Japanese ➔ Italian"], 
+        horizontal=True,
+        on_change=reset_card
+    )
+    
     # Initialize a random word in the session state if one doesn't exist
     if "current_word" not in st.session_state:
         st.session_state.current_word = random.choice(list(vocab.keys()))
         
     current_word = st.session_state.current_word
     
+    # 3. Determine what goes on the front and back based on the radio button
+    if direction == "Italian ➔ Japanese":
+        front_text = current_word
+        back_text = vocab[current_word]
+    else:
+        front_text = vocab[current_word]
+        back_text = current_word
+    
+    # 4. Display the card using our dynamic front/back variables
     if not st.session_state.flipped:
-        st.subheader(current_word)
+        st.subheader(front_text)
         if st.button("Flip Card"):
             st.session_state.flipped = True
             st.rerun()
     else:
-        st.subheader(vocab[current_word])
+        st.subheader(back_text)
         st.write("Did your friend get it right?")
         
         col1, col2 = st.columns(2)
         with col1:
             if st.button("✅ Yes, I knew it"):
-                log_progress(f"Flashcard: {current_word}", "Correct")
+                # Bonus: We log the direction in the Google Sheet so you know how they practiced!
+                log_progress(f"Flashcard ({direction}): {current_word}", "Correct")
                 st.success("Progress logged!")
                 st.session_state.flipped = False
                 # Pick a new random word for the next card!
@@ -106,7 +128,7 @@ with tab1:
                 st.rerun()
         with col2:
             if st.button("❌ No, I missed it"):
-                log_progress(f"Flashcard: {current_word}", "Incorrect")
+                log_progress(f"Flashcard ({direction}): {current_word}", "Incorrect")
                 st.error("Progress logged! Try again next time.")
                 st.session_state.flipped = False
                 st.session_state.current_word = random.choice(list(vocab.keys()))
