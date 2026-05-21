@@ -38,8 +38,8 @@ if "flipped" not in st.session_state:
 # --- HELPER FUNCTIONS ---
 def log_progress(task_type, result):
     """Fetches the Google Sheet, appends a new row, and updates it."""
-    # 1. Read existing data
-    existing_data = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], usecols=[0, 1, 2])
+    # 1. Read existing data (ttl=0 forces a fresh read, ignoring the cache!)
+    existing_data = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], usecols=[0, 1, 2], ttl=0)
     
     # 2. Create new row
     new_row = pd.DataFrame([{
