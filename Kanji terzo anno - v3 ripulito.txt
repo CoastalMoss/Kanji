@@ -1,0 +1,783 @@
+Kanji	Incolla valori
+返す	restituire -> かえす
+返事	risposta; rispondere -> へんじ
+地球	Terra, globo terrestre -> ちきゅう
+野球	baseball -> やきゅう
+職	impiego, professione -> しょく
+職業	professione -> しょくぎょう
+職人	artigiano -> しょくにん
+職場	luogo di lavoro -> しょくば
+温かい	caldo, tiepido -> あたたかい
+温まる	riscaldarsi -> あたたまる
+温める	riscaldare -> あたためる
+気温	temperatura atmosferica -> きおん
+温度	temperatura -> おんど
+差	differenza, divario -> さ
+差別	discriminazione; discriminare -> さべつ
+美しい	bello -> うつくしい
+美人	bella donna -> びじん
+州	regione, stato, provincia -> しゅう
+本州	Honshū -> ほんしゅう
+九州	Kyūshū -> きゅうしゅう
+京都府	prefettura di Kyoto -> きょうとふ
+政府	governo -> せいふ
+観る	guardare, osservare -> みる
+観光	turismo; fare turismo -> かんこう
+専門	specializzazione, settore specialistico -> せんもん
+専門家	specialista, esperto -> せんもんか
+身につける	acquisire, imparare; indossare -> みにつける
+身近	vicino, familiare -> みぢか
+出身	provenienza; luogo d’origine -> しゅっしん
+身分	status, posizione sociale -> みぶん
+自然	natura; naturale -> しぜん
+全然 + negativo	per niente, affatto (con negazione) -> ぜんぜん
+天然	naturale -> てんねん
+雑誌	rivista -> ざっし
+〜分の〜	“su”, “diviso”, frazione (es. 1/2) -> ぶんの
+名所	luogo famoso, attrazione -> めいしょ
+名物	specialità locale, prodotto tipico -> めいぶつ
+見学	visita di studio, osservare da vicino -> けんがく
+地方	regione, area locale -> ちほう
+行事	evento, cerimonia -> ぎょうじ
+行う	svolgere, effettuare -> おこなう
+四国	Shikoku -> しこく
+実	frutto -> み
+実る	maturare, dare frutti -> みのる
+実は	in realtà, a dire il vero -> じつは
+実験	esperimento; sperimentare -> じっけん
+実行	mettere in pratica, eseguire -> じっこう
+事実	fatto, realtà -> じじつ
+難しい	difficile -> むずかしい
+困難	difficile, arduo -> こんなん
+忙しい	occupato, impegnato -> いそがしい
+多忙	molto occupato -> たぼう
+昨日	ieri -> きのう
+昨年	l’anno scorso -> さくねん
+昨夜	ieri sera -> さくや
+敬語	linguaggio onorifico -> けいご
+敬う	rispettare, onorare -> うやまう
+複雑	complesso -> ふくざつ
+課	sezione, reparto; lezione -> か
+課長	caposezione -> かちょう
+一課	sezione 1 / lezione 1 -> いっか
+二課	sezione 2 / lezione 2 -> にか
+例えば	per esempio -> たとえば
+例	esempio, caso -> れい
+例外	eccezione -> れいがい
+落ちる	cadere; essere bocciato -> おちる
+落とす	far cadere; perdere -> おとす
+落とし物	oggetto smarrito -> おとしもの
+落選	essere sconfitto alle elezioni; non essere selezionato -> らくせん
+場面	scena, situazione -> ばめん
+面白い	interessante, divertente -> おもしろい
+表面	superficie -> ひょうめん
+僕	io (maschile, colloquiale) -> ぼく
+連れて行く	portare con sé -> つれていく
+連絡	contatto; contattare, informare -> れんらく
+国連	ONU -> こくれん
+連休	vacanze consecutive, ponte -> れんきゅう
+願う	desiderare, chiedere -> ねがう
+お願いする	chiedere, pregare -> おねがいする
+願書	modulo/domanda di iscrizione -> がんしょ
+簡単	semplice -> かんたん
+単語	parola, vocabolo -> たんご
+論文	saggio, tesi, articolo accademico -> ろんぶん
+議論	discussione, dibattito -> ぎろん
+誰	chi -> だれ
+お世話になる	ricevere aiuto / essere in debito con qualcuno -> おせわになる
+出来る	poter fare; essere capace -> できる
+言語	lingua, linguaggio -> げんご
+理解する	capire, comprendere -> りかいする
+解決する	risolvere -> かいけつする
+解く	sciogliere, risolvere -> とく
+助かる	essere salvato, essere utile -> たすかる
+助ける	aiutare, salvare -> たすける
+助手	assistente -> じょしゅ
+呼ぶ	chiamare -> よぶ
+呼吸	respirazione; respirare -> こきゅう
+技	tecnica, abilità -> わざ
+技術	tecnologia, tecnica -> ぎじゅつ
+技術者	tecnico, ingegnere -> ぎじゅつしゃ
+手術	operazione chirurgica -> しゅじゅつ
+美術	arte; museo d’arte -> びじゅつ
+一緒に	insieme -> いっしょに
+型	tipo, modello, forma -> かた
+〜型	tipo, modello -> がた
+人型	forma umana, antropomorfo -> ひとがた
+文型	struttura grammaticale -> ぶんけい
+毛	pelo, capello -> け
+欲しい	volere, desiderare -> ほしい
+欲	desiderio, appetito -> よく
+食欲	appetito -> しょくよく
+合格	superare un esame, essere ammesso -> ごうかく
+性格	carattere, personalità -> せいかく
+頼む	chiedere, ordinare, affidare -> たのむ
+頼る	contare su, fare affidamento su -> たよる
+信頼	fiducia; fidarsi -> しんらい
+人間	essere umano -> にんげん
+動かす	muovere -> うごかす
+大事	importante, prezioso -> だいじ
+学習	apprendimento; studiare -> がくしゅう
+実際に	in realtà, concretamente -> じっさいに
+現れる	apparire -> あらわれる
+現代	epoca moderna -> げんだい
+表現	espressione; esprimere -> ひょうげん
+現金	contanti -> げんきん
+現実	realtà -> げんじつ
+番組	programma (TV/radio) -> ばんぐみ
+組み立てる	assemblare -> くみたてる
+礼	ringraziamento, saluto; etichetta -> れい
+お礼	ringraziamento -> おれい
+失礼	scortese; scusi / con permesso -> しつれい
+方向	direzione -> ほうこう
+〜に向かって	verso -> むかって
+向ける	rivolgere, orientare -> むける
+〜向け	destinato a, pensato per -> むけ
+子供向け	per bambini -> こどもむけ
+向こう	dall’altra parte, oltre -> むこう
+能力	capacità, abilità -> のうりょく
+能	nō; abilità -> のう
+与える	dare, fornire -> あたえる
+寄る	avvicinarsi, fermarsi -> よる
+お年寄り	anziano -> としより
+近寄る	avvicinarsi -> ちかよる
+寄付	donazione; donare -> きふ
+種	seme; specie -> たね
+人種	razza, gruppo etnico -> じんしゅ
+種類	tipo, genere -> しゅるい
+分類	classificazione; classificare -> ぶんるい
+人類	genere umano -> じんるい
+健康	sano; salute -> けんこう
+お互いに	reciprocamente -> おたがいに
+尊敬	rispetto; rispettare -> そんけい
+含む	contenere, includere -> ふくむ
+含める	includere -> ふくめる
+精神	spirito, mente -> せいしん
+折る	piegare, rompere -> おる
+折り紙	origami -> おりがみ
+打つ	colpire, battere -> うつ
+打ち合わせ	riunione preparatoria, coordinamento -> うちあわせ
+驚く	stupirsi -> おどろく
+驚かす	sorprendere -> おどろかす
+迷う	essere indeciso; smarrirsi -> まよう
+一般的に	in generale -> いっぱんてきに
+先輩	senpai, compagno più anziano/esperto -> せんぱい
+後輩	kohai, compagno più giovane -> こうはい
+道具	utensile, attrezzo -> どうぐ
+家具	mobilio -> かぐ
+具体的	concreto, specifico -> ぐたいてき
+具合	condizione, stato; funzionamento -> ぐあい
+学ぶ	imparare, studiare -> まなぶ
+代表的	rappresentativo, tipico -> だいひょうてき
+大声	voce alta -> おおごえ
+部員	membro di un club/circolo -> ぶいん
+半年	mezzo anno, sei mesi -> はんとし
+現在	presente, attualmente -> げんざい
+失う	perdere -> うしなう
+敗れる	essere sconfitto -> やぶれる
+失敗	errore, fallimento; fallire -> しっぱい
+成功	successo; riuscire -> せいこう
+数える	contare -> かぞえる
+数	numero, quantità -> かず
+数学	matematica -> すうがく
+数字	cifra, numero -> すうじ
+日数	numero di giorni -> にっすう
+増える	aumentare -> ふえる
+増やす	aumentare qualcosa -> ふやす
+得意	bravo in; punto forte -> とくい
+得る	ottenere -> える
+お客さん	cliente, ospite -> おきゃくさん
+流れる	scorrere -> ながれる
+流す	far scorrere -> ながす
+交流	scambio, interazione -> こうりゅう
+流行	moda, tendenza; andare di moda -> りゅうこう
+流行る	essere di moda, diffondersi -> はやる
+消費	consumo; consumare -> しょうひ
+消費者	consumatore -> しょうひしゃ
+費用	costo, spesa -> ひよう
+量	quantità -> りょう
+量る	misurare -> はかる
+少量	piccola quantità -> しょうりょう
+大量	grande quantità -> たいりょう
+袋	sacchetto, borsa -> ふくろ
+手袋	guanti -> てぶくろ
+お湯	acqua calda -> おゆ
+値段	prezzo -> ねだん
+値上げ	aumento di prezzo -> ねあげ
+値下げ	ribasso di prezzo -> ねさげ
+暮らす	vivere -> くらす
+暮らし	vita quotidiana, sostentamento -> くらし
+一人暮らし	vivere da soli -> ひとりぐらし
+暮れる	calare (il giorno) -> くれる
+列	fila, riga -> れつ
+商品	merce, prodotto -> しょうひん
+競う	competere -> きそう
+競争	competizione; competere -> きょうそう
+境	confine, limite -> さかい
+国境	confine nazionale -> こっきょう
+慣れる	abituarsi -> なれる
+習慣	abitudine, consuetudine -> しゅうかん
+伝統	tradizione; tradizionale -> でんとう
+統一	unificazione; unificare -> とういつ
+混む	essere affollato -> こむ
+混ざる	mescolarsi -> まざる
+混ぜる	mescolare -> まぜる
+混雑	affollamento; essere affollato -> こんざつ
+紹介	presentazione; presentare -> しょうかい
+約〜	circa -> やく〜
+広げる	allargare, diffondere -> ひろげる
+友人	amico -> ゆうじん
+回転	rotazione; girare -> かいてん
+置く	mettere, posare -> おく
+世紀	secolo -> せいき
+参る	andare/venire (umile); cedere -> まいる
+お参り	visita a un santuario/tempio -> おまいり
+参加	partecipazione; partecipare -> さんか
+参考	riferimento -> さんこう
+加える	aggiungere -> くわえる
+宗教	religione -> しゅうきょう
+仏	Buddha; spirito dei defunti -> ほとけ
+仏教	buddhismo -> ぶっきょう
+祈る	pregare -> いのる
+お祈り	preghiera -> おいのり
+幸福	felicità; felice -> こうふく
+換える	cambiare, sostituire -> かえる
+交換	scambio; scambiare -> こうかん
+乗り換える	cambiare mezzo -> のりかえる
+祝う	celebrare -> いわう
+お祝い	celebrazione, regalo di congratulazioni -> おいわい
+祝福	benedizione; benedire/congratulare -> しゅくふく
+祝日	giorno festivo -> しゅくじつ
+存在	esistenza; esistere -> そんざい
+歴史	storia -> れきし
+学歴	carriera scolastica -> がくれき
+怒る	arrabbiarsi -> おこる
+恋	amore romantico -> こい
+恋人	fidanzato/a -> こいびと
+失恋	delusione amorosa; essere lasciato -> しつれん
+意識	coscienza; essere consapevole -> いしき
+知識	conoscenza -> ちしき
+殺す	uccidere -> ころす
+自殺	suicidio; suicidarsi -> じさつ
+殺人	omicidio -> さつじん
+岩	roccia -> いわ
+結構	piuttosto; abbastanza; va bene -> けっこう
+構成	composizione; comporre/strutturare -> こうせい
+許す	perdonare, permettere -> ゆるす
+割合	proporzione, percentuale -> わりあい
+割る	dividere; rompere -> わる
+割れる	rompersi; dividersi -> われる
+〜割	decimo/i (10%, 20% ecc.) -> わり
+一割	10% -> いちわり
+二割	20% -> にわり
+信者	credente -> しんじゃ
+神話	mito -> しんわ
+土地	terreno, territorio -> とち
+受け入れる	accettare, accogliere -> うけいれる
+人口	popolazione -> じんこう
+神道	Shintō -> しんとう
+命	vita -> いのち
+深い	profondo -> ふかい
+深夜	notte fonda -> しんや
+影響	influenza; influenzare -> えいきょう
+響く	risuonare; avere effetto -> ひびく
+欧州	Europa -> おうしゅう
+欧米	Occidente (Europa e America) -> おうべい
+出版	pubblicazione; pubblicare -> しゅっぱん
+第一	primo; soprattutto -> だいいち
+第二次世界大戦	Seconda guerra mondiale -> だいにじせかいたいせん
+〜次第	a seconda di; appena -> しだい
+亡くなる	morire -> なくなる
+死亡	morte; morire -> しぼう
+頃	circa, intorno a (tempo) -> ころ
+この頃	ultimamente -> このごろ
+近頃	di recente -> ちかごろ
+鼻	naso -> はな
+活躍	attività brillante; distinguersi -> かつやく
+芸術	arte; artista -> げいじゅつ
+芸能	spettacolo, arti performative -> げいのう
+愛	amore; amare -> あい
+愛情	affetto -> あいじょう
+恋愛	amore romantico; avere una relazione -> れんあい
+超える	superare, oltrepassare -> こえる
+鳴る	suonare, emettere suono -> なる
+鳴く	verso degli animali -> なく
+傾向	tendenza -> けいこう
+選挙	elezione -> せんきょ
+挙げる	alzare; elencare -> あげる
+適当	adatto; appropriato -> てきとう
+現状	situazione attuale -> げんじょう
+状況	situazione, condizione -> じょうきょう
+好況	congiuntura favorevole, boom -> こうきょう
+不況	recessione, crisi -> ふきょう
+血	sangue -> ち
+血液	sangue; gruppo sanguigno -> けつえき
+元	origine; ex- -> もと
+読者	lettore -> どくしゃ
+少年	ragazzo -> しょうねん
+少女	ragazza -> しょうじょ
+人物	persona, personaggio -> じんぶつ
+世の中	il mondo, la società -> よのなか
+伝わる	essere tramandato, trasmesso -> つたわる
+動作	movimento, gesto; funzionamento -> どうさ
+効く	avere effetto, funzionare -> きく
+効果	effetto -> こうか
+科学	scienza; scienziato -> かがく
+科学的	scientifico -> かがくてき
+教科書	libro di testo -> きょうかしょ
+減る	diminuire -> へる
+減らす	ridurre -> へらす
+減少	diminuzione; diminuire -> げんしょう
+増加	aumento; aumentare -> ぞうか
+完成	completamento; completare -> かんせい
+登る	salire, scalare -> のぼる
+登場	apparizione; comparire -> とうじょう
+逆	contrario, opposto -> ぎゃく
+逆らう	opporsi, disobbedire -> さからう
+常に	sempre, costantemente -> つねに
+日常	quotidianità -> にちじょう
+常識	buon senso, conoscenza comune -> じょうしき
+正確	preciso, accurato -> せいかく
+確かな	certo, sicuro -> たしかな
+確かに	certamente -> たしかに
+証明	prova, dimostrazione; dimostrare -> しょうめい
+証明書	certificato -> しょうめいしょ
+患者	paziente -> かんじゃ
+講義	lezione universitaria -> こうぎ
+平均	media -> へいきん
+劇	dramma, opera teatrale -> げき
+悲劇	tragedia -> ひげき
+劇場	teatro -> げきじょう
+普通	normale -> ふつう
+途中	in mezzo, lungo il percorso -> とちゅう
+偉い	grande; importante -> えらい
+偉大	grandioso -> いだい
+立派	splendido; eccellente -> りっぱ
+〜派	corrente, fazione, scuola -> は
+右派	destra politica -> うは
+左派	sinistra politica -> さは
+印象派	impressionismo -> いんしょうは
+毒	veleno -> どく
+謝る	scusarsi -> あやまる
+感謝	gratitudine; ringraziare -> かんしゃ
+破る	rompere, infrangere -> やぶる
+破れる	strapparsi, rompersi -> やぶれる
+喜ぶ	gioire -> よろこぶ
+喜劇	commedia -> きげき
+追いかける	inseguire -> おいかける
+追加	aggiunta; aggiungere -> ついか
+逃げる	scappare -> にげる
+探す	cercare -> さがす
+突然	improvvisamente -> とつぜん
+抜く	togliere, estrarre -> ぬく
+抜ける	venir via; mancare -> ぬける
+怖い	spaventoso -> こわい
+〜通りに	come, secondo -> とおりに
+取り入れる	adottare, introdurre -> とりいれる
+中心	centro -> ちゅうしん
+主人公	protagonista -> しゅじんこう
+立場	posizione, punto di vista -> たちば
+近づく	avvicinarsi -> ちかづく
+〜法	metodo; legge -> ほう
+V＋直す	rifare / correggere facendo di nuovo -> なおす
+生える	crescere (capelli, erba ecc.) -> はえる
+制度	sistema, istituzione -> せいど
+〜制	sistema di... -> せい
+制服	uniforme -> せいふく
+満たす	soddisfare, riempire -> みたす
+満足	soddisfazione; essere soddisfatto -> まんぞく
+満員	tutto esaurito, pieno -> まんいん
+協力	cooperazione; collaborare -> きょうりょく
+協会	associazione -> きょうかい
+地位	posizione, status -> ちい
+一位	primo posto -> いちい
+二位	secondo posto -> にい
+単位	unità; credito formativo -> たんい
+位置	posizione -> いち
+原料	materia prima -> げんりょう
+原因	causa -> げんいん
+求める	cercare, richiedere -> もとめる
+要求	richiesta; esigere -> ようきゅう
+可能性	possibilità -> かのうせい
+許可	permesso; autorizzare -> きょか
+内容	contenuto -> ないよう
+計算	calcolo; calcolare -> けいさん
+等しい	uguale -> ひとしい
+平等	uguaglianza -> びょうどう
+義務	dovere, obbligo -> ぎむ
+務める	svolgere un incarico -> つとめる
+事務所	ufficio -> じむしょ
+公務員	impiegato pubblico -> こうむいん
+率	tasso, percentuale -> りつ
+成功率	tasso di successo -> せいこうりつ
+効率	efficienza -> こうりつ
+希望	speranza; desiderare -> きぼう
+望む	desiderare, augurarsi -> のぞむ
+指す	indicare, puntare -> さす
+目指す	puntare a, mirare a -> めざす
+指	dito -> ゆび
+指定席	posto riservato -> していせき
+厳しい	severo, rigido -> きびしい
+庭	giardino -> にわ
+家庭	famiglia, ambiente domestico -> かてい
+環境	ambiente -> かんきょう
+就職	trovare lavoro, impiego -> しゅうしょく
+給料	stipendio -> きゅうりょう
+認める	riconoscere, ammettere -> みとめる
+確認	conferma; verificare -> かくにん
+判断	giudizio; giudicare -> はんだん
+断る	rifiutare -> ことわる
+述べる	esporre, dichiarare -> のべる
+〜限り	finché; per quanto -> かぎり
+〜とは限らない	non è detto che... -> とはかぎらない
+限界	limite -> げんかい
+制限	limitazione; limitare -> せいげん
+基本	base, fondamento -> きほん
+基本的	fondamentale, di base -> きほんてき
+似る	assomigliare -> にる
+似合う	stare bene (a qualcuno) -> にあう
+真似する	imitare -> まねする
+否定	negazione; negare -> ひてい
+進学	proseguire gli studi -> しんがく
+公立	pubblico -> こうりつ
+私立	privato -> しりつ
+一方	da una parte; d’altra parte -> いっぽう
+人生	vita -> じんせい
+主な	principale -> おもな
+下がる	scendere, abbassarsi -> さがる
+低下	calo; diminuire -> ていか
+仕方	modo, maniera; non c’è niente da fare -> しかた
+必死	disperatamente, con tutte le forze -> ひっし
+統計	statistica -> とうけい
+訪れる	visitare; arrivare (una stagione ecc.) -> おとずれる
+訪問	visita; visitare -> ほうもん
+省エネ	risparmio energetico -> しょうエネ
+〜省	ministero -> しょう
+外務省	Ministero degli Esteri -> がいむしょう
+情報	informazione -> じょうほう
+報道	notizia, reportage; riportare -> ほうどう
+天気予報	previsioni del tempo -> てんきよほう
+独り言	parlare da soli, monologo -> ひとりごと
+独身	celibe / nubile -> どくしん
+独自	originale, proprio -> どくじ
+独特	peculiare, caratteristico -> どくとく
+並べる	allineare, mettere in fila -> ならべる
+並ぶ	mettersi in fila; essere allineato -> ならぶ
+販売	vendita; vendere -> はんばい
+自動販売機	distributore automatico -> じどうはんばいき
+街	città, quartiere -> まち
+商店街	via/comprensorio commerciale -> しょうてんがい
+普及	diffusione; diffondersi -> ふきゅう
+普及率	tasso di diffusione -> ふきゅうりつ
+冷凍	congelamento; surgelato -> れいとう
+凍る	congelarsi -> こおる
+犯人	colpevole, criminale -> はんにん
+罪	colpa, crimine -> つみ
+犯罪	crimine -> はんざい
+有罪	colpevole -> ゆうざい
+無罪	innocente -> むざい
+盗む	rubare -> ぬすむ
+盗難	furto -> とうなん
+壊す	rompere -> こわす
+壊れる	rompersi -> こわれる
+破壊	distruzione; distruggere -> はかい
+著者	autore -> ちょしゃ
+〜製	fatto di / prodotto in -> せい
+日本製	prodotto in Giappone -> にほんせい
+ガラス製	di vetro -> ガラスせい
+製品	prodotto -> せいひん
+製作	produzione, realizzazione -> せいさく
+機械	macchina, meccanismo -> きかい
+宣伝	pubblicità; fare pubblicità -> せんでん
+特徴	caratteristica -> とくちょう
+批判	critica; criticare -> ひはん
+対策	misura, contromisura -> たいさく
+政策	politica (policy) -> せいさく
+缶	lattina, barattolo -> かん
+導入	introduzione; introdurre -> どうにゅう
+指導	guida; istruire -> しどう
+規制	regolamentazione; limitare -> きせい
+替える	sostituire -> かえる
+着替える	cambiarsi d’abito -> きがえる
+両替	cambiare denaro -> りょうがえ
+変化	cambiamento; cambiare -> へんか
+好む	preferire, gradire -> このむ
+売り上げ	vendite, fatturato -> うりあげ
+電子レンジ	forno a microonde -> でんしレンジ
+味方	alleato; punto di vista -> みかた
+食料品	generi alimentari -> しょくりょうひん
+生活用品	articoli per la vita quotidiana -> せいかつようひん
+心理	psicologia; stato mentale -> しんり
+各〜	ogni, ciascun -> かく〜
+各地	ogni luogo, varie località -> かくち
+各国	ogni paese, vari paesi -> かっこく
+税金	tassa -> ぜいきん
+支払う	pagare -> しはらう
+支店	filiale -> してん
+支える	sostenere -> ささえる
+支持	sostegno; sostenere -> しじ
+四季	quattro stagioni -> しき
+季語	parola stagionale (haiku) -> きご
+季節	stagione -> きせつ
+非常に	molto, estremamente -> ひじょうに
+非常口	uscita di emergenza -> ひじょうぐち
+非常識	mancanza di buon senso -> ひじょうしき
+輸入	importazione; importare -> ゆにゅう
+輸出	esportazione; esportare -> ゆしゅつ
+天候	condizioni meteo -> てんこう
+気候	clima -> きこう
+建築	architettura; costruzione -> けんちく
+建築家	architetto -> けんちくか
+服装	abbigliamento -> ふくそう
+発展	sviluppo; svilupparsi -> はってん
+〜から〜に至るまで	da... fino a... -> から〜にいたるまで
+至る所	dappertutto -> いたるところ
+至急	urgentemente -> しきゅう
+貿易	commercio -> ぼうえき
+興味	interesse -> きょうみ
+興味深い	interessante -> きょうみぶかい
+面積	superficie, area -> めんせき
+積極的	attivo, proattivo -> せっきょくてき
+消極的	passivo, poco intraprendente -> しょうきょくてき
+南極	Polo Sud -> なんきょく
+北極	Polo Nord -> ほっきょく
+江戸時代	periodo Edo -> えどじだい
+郵便	posta -> ゆうびん
+禁止	divieto; vietare -> きんし
+記録	registrazione; registrare -> きろく
+録音	registrazione audio; registrare -> ろくおん
+燃える	bruciare -> もえる
+燃やす	bruciare qualcosa -> もやす
+燃料	carburante -> ねんりょう
+演じる	recitare, interpretare -> えんじる
+演説	discorso; fare un discorso -> えんぜつ
+〜を通して	attraverso -> をとおして
+〜風	stile, tipo -> ふう
+用いる	usare, impiegare -> もちいる
+当時	a quel tempo -> とうじ
+近代的	moderno -> きんだいてき
+出来事	avvenimento -> できごと
+確立する	stabilire, consolidare -> かくりつする
+同士	tra pari / compagni dello stesso gruppo -> どうし
+植物	pianta, vegetale -> しょくぶつ
+植える	piantare -> うえる
+仲がいい	andare d’accordo -> なかがいい
+仲良くする	comportarsi amichevolmente -> なかよくする
+仲間	compagno, gruppo -> なかま
+角	angolo -> かど
+三角	triangolo -> さんかく
+四角	quadrato -> しかく
+線	linea -> せん
+薄い	sottile; debole -> うすい
+厚い	spesso -> あつい
+濃い	denso, intenso -> こい
+隠す	nascondere -> かくす
+隠れる	nascondersi -> かくれる
+乾く	asciugarsi -> かわく
+乾かす	asciugare -> かわかす
+乾電池	pila, batteria a secco -> かんでんち
+柔らかい	morbido -> やわらかい
+柔道	judo -> じゅうどう
+丈夫	robusto -> じょうぶ
+大丈夫	va bene; sicuro -> だいじょうぶ
+優しい	gentile -> やさしい
+優勝	vittoria; vincere -> ゆうしょう
+女優	attrice -> じょゆう
+改良	miglioramento; migliorare -> かいりょう
+改正する	revisionare, emendare -> かいせいする
+欠ける	mancare; scheggiarsi -> かける
+不可欠	indispensabile -> ふかけつ
+欠席	assenza; assentarsi -> けっせき
+出席	presenza; partecipare -> しゅっせき
+沿う	seguire lungo -> そう
+曲	brano musicale -> きょく
+曲げる	piegare -> まげる
+曲がる	curvarsi, girare -> まがる
+曲線	curva -> きょくせん
+吹く	soffiare -> ふく
+同級生	compagno di classe -> どうきゅうせい
+級	livello, grado -> きゅう
+初級	livello base -> しょきゅう
+中級	livello intermedio -> ちゅうきゅう
+上級	livello avanzato -> じょうきゅう
+原爆	bomba atomica -> げんばく
+飾る	decorare -> かざる
+状態	stato, condizione -> じょうたい
+態度	atteggiamento -> たいど
+和紙	carta giapponese -> わし
+生かす	sfruttare, valorizzare -> いかす
+通す	far passare; far attraversare -> とおす
+ひっくり返す	capovolgere -> ひっくりかえす
+出来上がり	completamento, risultato finito -> できあがり
+開発	sviluppo; sviluppare -> かいはつ
+印	segno, marchio -> しるし
+印象	impressione -> いんしょう
+現象	fenomeno -> げんしょう
+象	elefante -> ぞう
+氷	ghiaccio -> こおり
+詩	poesia -> し
+詩人	poeta -> しじん
+感想	impressione, commento -> かんそう
+理想	ideale -> りそう
+想像	immaginazione; immaginare -> そうぞう
+直接	direttamente -> ちょくせつ
+示す	mostrare, indicare -> しめす
+指示	istruzione; indicare -> しじ
+担当	incarico; essere incaricato -> たんとう
+担任	insegnante responsabile della classe -> たんにん
+任せる	affidare, lasciare a -> まかせる
+姿	figura, aspetto -> すがた
+観察	osservazione; osservare -> かんさつ
+文章	testo, frase -> ぶんしょう
+氷が張る	ghiacciare / formarsi il ghiaccio -> こおりがはる
+出張	viaggio di lavoro -> しゅっちょう
+俳優	attore -> はいゆう
+俳句	haiku -> はいく
+文句	lamentela; frase -> もんく
+浮かぶ	galleggiare; venire in mente -> うかぶ
+浮く	galleggiare -> うく
+規則	regola -> きそく
+反則	fallo, infrazione -> はんそく
+要素	elemento -> ようそ
+素直	sincero, docile -> すなお
+歌詞	testo di una canzone -> かし
+接続詞	congiunzione -> せつぞくし
+動詞	verbo -> どうし
+名詞	sostantivo -> めいし
+溶ける	sciogliersi -> とける
+溶かす	sciogliere -> とかす
+誕生	nascita; nascere -> たんじょう
+誕生日	compleanno -> たんじょうび
+記憶	memoria, ricordo -> きおく
+孫	nipote -> まご
+子孫	discendenti -> しそん
+通じる	essere compreso; comunicare -> つうじる
+味わう	assaporare, gustare -> あじわう
+勝手	egoista; arbitrario; comodo -> かって
+親しむ	familiarizzare con, apprezzare -> したしむ
+本来	originariamente, essenzialmente -> ほんらい
+意図する	intendere -> いとする
+形式	forma, formato -> けいしき
+手段	mezzo, metodo -> しゅだん
+条件	condizione -> じょうけん
+事件	incidente, caso, fatto -> じけん
+目標	obiettivo -> もくひょう
+票	voto, scheda -> ひょう
+投票	voto; votare -> とうひょう
+責任	responsabilità -> せきにん
+責める	biasimare -> せめる
+権利	diritto -> けんり
+選挙権	diritto di voto -> せんきょけん
+時期	periodo, momento -> じき
+学期	semestre, trimestre -> がっき
+評価	valutazione; valutare -> ひょうか
+物価	prezzi delle merci -> ぶっか
+価値	valore -> かち
+大臣	ministro -> だいじん
+総理大臣	primo ministro -> そうりだいじん
+除く	escludere -> のぞく
+貧しい	povero -> まずしい
+貧困	povertà -> ひんこん
+地域	area, regione -> ちいき
+立候補	candidarsi -> りっこうほ
+候補者	candidato -> こうほしゃ
+看病	assistere un malato -> かんびょう
+看板	insegna -> かんばん
+黒板	lavagna -> こくばん
+一応	per il momento; in via provvisoria -> いちおう
+応用	applicazione; applicare -> おうよう
+引退	ritiro; ritirarsi -> いんたい
+退院	dimissione dall’ospedale -> たいいん
+入院	ricovero -> にゅういん
+離れる	separarsi, allontanarsi -> はなれる
+離婚	divorzio; divorziare -> りこん
+討論	discussione, dibattito -> とうろん
+剣	spada -> けん
+真剣に	seriamente -> しんけんに
+雰囲気	atmosfera -> ふんいき
+囲む	circondare -> かこむ
+偏見	pregiudizio -> へんけん
+偏る	essere sbilanciato, parziale -> かたよる
+国外	fuori dal paese, all’estero -> こくがい
+温暖	mite, caldo -> おんだん
+地球温暖化	riscaldamento globale -> ちきゅうおんだんか
+注目	attenzione; attirare attenzione -> ちゅうもく
+知り合い	conoscente -> しりあい
+左右する	influenzare, determinare -> さゆうする
+当日	il giorno stesso -> とうじつ
+知事	governatore prefetturale -> ちじ
+違反	violazione; violare -> いはん
+反映	riflettere, rispecchiare -> はんえい
+当選	essere eletto / selezionato -> とうせん
+落選	non essere eletto / essere bocciato -> らくせん
+無関心	disinteresse -> むかんしん
+疑問	dubbio, domanda -> ぎもん
+疑う	dubitare, sospettare -> うたがう
+悩む	preoccuparsi, tormentarsi -> なやむ
+悩み	preoccupazione, problema -> なやみ
+豊か	ricco, abbondante -> ゆたか
+再び	di nuovo -> ふたたび
+再利用	riutilizzo -> さいりよう
+再来年	fra due anni -> さらいねん
+緑	verde -> みどり
+緑茶	tè verde -> りょくちゃ
+測る	misurare -> はかる
+予測	previsione; prevedere -> よそく
+栄養	nutrizione -> えいよう
+養う	nutrire, coltivare -> やしなう
+恐れる	temere -> おそれる
+恐怖	paura, terrore -> きょうふ
+従う	seguire, obbedire -> したがう
+恵まれた	benedetto, favorito -> めぐまれた
+知恵	saggezza, ingegno -> ちえ
+高齢者	anziano -> こうれいしゃ
+年齢	età -> ねんれい
+寿命	durata della vita, longevità -> じゅみょう
+長寿	lunga vita, longevità -> ちょうじゅ
+延びる	allungarsi, essere prolungato -> のびる
+延ばす	allungare, prolungare -> のばす
+延期	rinvio; rimandare -> えんき
+収める	ottenere; mettere a posto; consegnare -> おさめる
+収入	reddito, entrata -> しゅうにゅう
+財産	patrimonio, beni -> ざいさん
+労働	lavoro; lavorare -> ろうどう
+苦労	fatica, difficoltà; faticare -> くろう
+貯金	risparmio; risparmiare -> ちょきん
+貯める	accumulare, mettere da parte -> ためる
+衛生的	igienico -> えいせいてき
+衛生	igiene -> えいせい
+賞	premio -> しょう
+受賞	ricevere un premio -> じゅしょう
+賞金	premio in denaro -> しょうきん
+賞品	premio, oggetto premio -> しょうひん
+資本	capitale -> しほん
+資源	risorsa -> しげん
+電源	alimentazione elettrica; fonte di energia -> でんげん
+改善	miglioramento; migliorare -> かいぜん
+農家	agricoltore; famiglia contadina -> のうか
+農業	agricoltura -> のうぎょう
+防ぐ	prevenire, impedire -> ふせぐ
+防止	prevenzione; prevenire -> ぼうし
+募金	raccolta fondi -> ぼきん
+募集	reclutamento; raccogliere candidature -> ぼしゅう
+応募	candidatura; candidarsi -> おうぼ
+裏	retro, rovescio -> うら
+表	fronte, facciata -> おもて
+行動	azione; agire -> こうどう
+十分	sufficiente -> じゅうぶん
+太陽	sole -> たいよう
+太平洋	Oceano Pacifico -> たいへいよう
+老後	vecchiaia, anni della pensione -> ろうご
+長生き	vivere a lungo -> ながいき
+不安	ansioso; insicurezza -> ふあん
+手に入れる	ottenere -> てにいれる
+〜以来	da... in poi; da quando -> いらい
+物質	materia, sostanza -> ぶっしつ
+広める	diffondere -> ひろめる
+平気	tranquillo; impassibile -> へいき
+人種	razza, gruppo etnico -> じんしゅ
+住民	residente, abitante -> じゅうみん
+取り戻す	recuperare, riottenere -> とりもどす
+分野	ambito, settore -> ぶんや
+付き合い	rapporto, frequentazione -> つきあい
+森林	foresta -> しんりん
