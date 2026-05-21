@@ -3,6 +3,7 @@ import google.generativeai as genai
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 from datetime import datetime
+import random
 
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
@@ -14,15 +15,20 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 # Establish Google Sheets Connection
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-# --- HARDCODED VOCABULARY ---
-# Italian -> Japanese mapping
-vocab = {
-    "gatto": "猫 (neko)",
-    "cane": "犬 (inu)",
-    "mangiare": "食べる (taberu)",
-    "mela": "りんご (ringo)",
-    "io": "私 (watashi)"
-}
+import random # Add this to the very top of your app.py with the other imports
+
+# --- LOAD VOCABULARY FROM FILE ---
+# Read the file. We use sep='\t' assuming it's tab-separated. 
+# (If you saved it as a comma-separated CSV, change it to sep=',')
+df = pd.read_csv("vocab.tsv", sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
+
+# Convert it into a dictionary. 
+# This maps the Italian meaning (front of card) to the Kanji (back of card)
+vocab = dict(zip(df["Meaning_and_Pronunciation"], df["Kanji"]))
+
+# NOTE: If you want the Kanji on the FRONT of the card instead, use this line:
+# vocab = dict(zip(df["Kanji"], df["Meaning_and_Pronunciation"]))
+
 allowed_words_list = ", ".join(vocab.values())
 
 # --- STATE MANAGEMENT ---
