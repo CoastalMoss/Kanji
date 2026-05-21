@@ -20,7 +20,7 @@ import random # Add this to the very top of your app.py with the other imports
 # --- LOAD VOCABULARY FROM FILE ---
 # Read the file. We use sep='\t' assuming it's tab-separated. 
 # (If you saved it as a comma-separated CSV, change it to sep=',')
-df = pd.read_csv("vocab.tsv", sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
+df = pd.read_csv("Kanji terzo anno - v3 ripulito.txt", sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
 
 # Convert it into a dictionary. 
 # This maps the Italian meaning (front of card) to the Kanji (back of card)
