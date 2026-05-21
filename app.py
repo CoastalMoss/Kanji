@@ -79,15 +79,20 @@ tab1, tab2 = st.tabs(["Flashcards", "Sentence Translation"])
 
 with tab1:
     st.header("Vocab Flashcard")
-    current_word = "gatto" # In a real app, you'd pick randomly from vocab.keys()
+    
+    # Initialize a random word in the session state if one doesn't exist
+    if "current_word" not in st.session_state:
+        st.session_state.current_word = random.choice(list(vocab.keys()))
+        
+    current_word = st.session_state.current_word
     
     if not st.session_state.flipped:
-        st.subheader(f"🇮🇹 {current_word}")
+        st.subheader(current_word)
         if st.button("Flip Card"):
             st.session_state.flipped = True
             st.rerun()
     else:
-        st.subheader(f"🇯🇵 {vocab[current_word]}")
+        st.subheader(vocab[current_word])
         st.write("Did your friend get it right?")
         
         col1, col2 = st.columns(2)
@@ -96,12 +101,16 @@ with tab1:
                 log_progress(f"Flashcard: {current_word}", "Correct")
                 st.success("Progress logged!")
                 st.session_state.flipped = False
-                # Here you could trigger a new random word
+                # Pick a new random word for the next card!
+                st.session_state.current_word = random.choice(list(vocab.keys())) 
+                st.rerun()
         with col2:
             if st.button("❌ No, I missed it"):
                 log_progress(f"Flashcard: {current_word}", "Incorrect")
                 st.error("Progress logged! Try again next time.")
                 st.session_state.flipped = False
+                st.session_state.current_word = random.choice(list(vocab.keys()))
+                st.rerun()
 
 with tab2:
     st.header("Sentence Translation")
