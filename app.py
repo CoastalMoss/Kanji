@@ -5,6 +5,16 @@ import pandas as pd
 from datetime import datetime
 import random
 
+# --- CONFIGURATION ---
+st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
+
+# Configure Gemini API
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# Establish Google Sheets Connection
+conn = st.connection("gsheets", type=GSheetsConnection)
+
 # --- VOCABULARY SELECTION UI ---
 # This creates a nice panel on the left side of the screen
 st.sidebar.header("⚙️ Settings")
@@ -12,8 +22,8 @@ st.sidebar.header("⚙️ Settings")
 # Define your files here. Make sure the filenames perfectly match the files in your folder!
 AVAILABLE_VOCABS = {
     "Terzo Anno": "Kanji terzo anno - v3 ripulito.txt",
-    "Secondo Anno": "Kanji secondo anno",
-    "Primo Anno": "Kanji primo anno.tsv" # Replace with your actual 3rd file's name!
+    "Secondo Anno": "Kanji secondo anno.tsv",
+    "Primo Anno": "Kanji primo anno.tsv" # Change this if your file has a different name!
 }
 
 # Let the user pick multiple options. By default, "Terzo Anno" is selected.
@@ -37,8 +47,8 @@ for list_name in selected_lists:
         df = pd.read_csv(file_path, sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
         
         # Smart check: if the file has a header row like "Giapponese \t Italiano", skip it!
-        #if df.iloc[0]["Kanji"] == "Giapponese":
-            #df = df.iloc[1:]
+        if df.iloc[0]["Kanji"] == "Giapponese" or df.iloc[0]["Kanji"] == "Kanji":
+            df = df.iloc[1:]
             
         # Merge the new words into our main dictionary
         vocab.update(dict(zip(df["Meaning_and_Pronunciation"], df["Kanji"])))
