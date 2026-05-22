@@ -5,29 +5,45 @@ import pandas as pd
 from datetime import datetime
 import random
 
-# --- CONFIGURATION ---
-st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
+# --- VOCABULARY SELECTION UI ---
+# This creates a nice panel on the left side of the screen
+st.sidebar.header("⚙️ Settings")
 
-# Configure Gemini API
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Define your files here. Make sure the filenames perfectly match the files in your folder!
+AVAILABLE_VOCABS = {
+    "Terzo Anno": "Kanji terzo anno - v3 ripulito.txt",
+    "Secondo Anno": "Kanji secondo anno.tsv",
+    "Primo Anno": "Kanji primo anno.tsv" # Replace with your actual 3rd file's name!
+}
 
-# Establish Google Sheets Connection
-conn = st.connection("gsheets", type=GSheetsConnection)
+# Let the user pick multiple options. By default, "Terzo Anno" is selected.
+selected_lists = st.sidebar.multiselect(
+    "Select vocabularies to practice:",
+    options=list(AVAILABLE_VOCABS.keys()),
+    default=["Terzo Anno"] 
+)
 
-import random # Add this to the very top of your app.py with the other imports
+# If the user unchecks all boxes, stop the app and show a warning
+if not selected_lists:
+    st.warning("👈 Please select at least one vocabulary list from the sidebar to start!")
+    st.stop()
 
-# --- LOAD VOCABULARY FROM FILE ---
-# Read the file. We use sep='\t' assuming it's tab-separated. 
-# (If you saved it as a comma-separated CSV, change it to sep=',')
-df = pd.read_csv("Kanji terzo anno - v3 ripulito.txt", sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
+# --- LOAD AND COMBINE VOCABULARY ---
+vocab = {}
 
-# Convert it into a dictionary. 
-# This maps the Italian meaning (front of card) to the Kanji (back of card)
-vocab = dict(zip(df["Meaning_and_Pronunciation"], df["Kanji"]))
-
-# NOTE: If you want the Kanji on the FRONT of the card instead, use this line:
-# vocab = dict(zip(df["Kanji"], df["Meaning_and_Pronunciation"]))
+for list_name in selected_lists:
+    file_path = AVAILABLE_VOCABS[list_name]
+    try:
+        df = pd.read_csv(file_path, sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
+        
+        # Smart check: if the file has a header row like "Giapponese \t Italiano", skip it!
+        #if df.iloc[0]["Kanji"] == "Giapponese":
+            #df = df.iloc[1:]
+            
+        # Merge the new words into our main dictionary
+        vocab.update(dict(zip(df["Meaning_and_Pronunciation"], df["Kanji"])))
+    except FileNotFoundError:
+        st.sidebar.error(f"⚠️ Could not find file: {file_path}")
 
 allowed_words_list = ", ".join(vocab.values())
 
@@ -35,7 +51,13 @@ allowed_words_list = ", ".join(vocab.values())
 if "flipped" not in st.session_state:
     st.session_state.flipped = False
 
+# CRITICAL FIX: If you uncheck a vocabulary list, the app might be holding onto a 'current_word' 
+# that no longer exists in the loaded lists. This resets the word safely if that happens.
+if "current_word" not in st.session_state or st.session_state.current_word not in vocab:
+    st.session_state.current_word = random.choice(list(vocab.keys()))
+
 # --- HELPER FUNCTIONS ---
+# (Keep your log_progress and check_translation_with_ai functions exactly as they are below here)
 def log_progress(task_type, result):
     """Fetches the Google Sheet, appends a new row, and updates it."""
     # 1. Read existing data (ttl=0 forces a fresh read, ignoring the cache!)
