@@ -12,7 +12,7 @@ st.sidebar.header("⚙️ Settings")
 # Define your files here. Make sure the filenames perfectly match the files in your folder!
 AVAILABLE_VOCABS = {
     "Terzo Anno": "Kanji terzo anno - v3 ripulito.txt",
-    "Secondo Anno": "Kanji secondo anno.tsv",
+    "Secondo Anno": "Kanji secondo anno",
     "Primo Anno": "Kanji primo anno.tsv" # Replace with your actual 3rd file's name!
 }
 
