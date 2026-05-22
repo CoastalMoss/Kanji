@@ -22,7 +22,7 @@ st.sidebar.header("⚙️ Settings")
 # Define your files here. Make sure the filenames perfectly match the files in your folder!
 AVAILABLE_VOCABS = {
     "Terzo Anno": "Kanji terzo anno - v3 ripulito.txt",
-    "Secondo Anno": "Kanji secondo anno.tsv",
+    "Secondo Anno": "Kanji secondo anno",
     "Primo Anno": "Kanji primo anno.tsv" # Change this if your file has a different name!
 }
 
@@ -47,8 +47,8 @@ for list_name in selected_lists:
         df = pd.read_csv(file_path, sep="\t", names=["Kanji", "Meaning_and_Pronunciation"])
         
         # Smart check: if the file has a header row like "Giapponese \t Italiano", skip it!
-        if df.iloc[0]["Kanji"] == "Giapponese" or df.iloc[0]["Kanji"] == "Kanji":
-            df = df.iloc[1:]
+        #if df.iloc[0]["Kanji"] == "Giapponese" or df.iloc[0]["Kanji"] == "Kanji":
+         #   df = df.iloc[1:]
             
         # Merge the new words into our main dictionary
         vocab.update(dict(zip(df["Meaning_and_Pronunciation"], df["Kanji"])))
