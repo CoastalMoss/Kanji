@@ -5,6 +5,21 @@ import pandas as pd
 from datetime import datetime
 import random
 
+# --- DEBUG TOOL ---
+if st.sidebar.button("🔍 Debug: List Available Models"):
+    with st.sidebar:
+        try:
+            st.write("Models available to your API Key:")
+            # Ask Google for the list of available models
+            models = client.models.list()
+            for m in models:
+                # Only show models that support text generation
+                if "generateContent" in m.supported_actions:
+                    st.code(m.name)
+        except Exception as e:
+            st.error(f"API Error: {e}")
+# ------------------
+
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
 
@@ -239,7 +254,7 @@ def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, 
         return f"[INCORRECT]\nExplanation: Google API Error - {str(e)}"
 
 # --- UI LAYOUT ---
-st.title("🇯🇵 Japanese Practice")
+st.title("Impara i kanji con Kuroneko 🐱")
 
 # Create two tabs for the two features
 tab1, tab2 = st.tabs(["Flashcards", "Sentence Translation"])
@@ -254,7 +269,7 @@ with tab1:
     # 2. Add the radio button for direction selection
     direction = st.radio(
         "Guessing direction:", 
-        ["Italian ➔ Japanese", "Japanese ➔ Italian"], 
+        ["Japanese ➔ Italian", "Italian ➔ Japanese"], 
         horizontal=True,
         on_change=reset_card
     )
