@@ -116,6 +116,7 @@ deck_df = master_df[master_df["Anno"].isin(selected_years)]
 
 # NEW FIX: Generate the allowed words list for the AI dynamically based on the selected years!
 allowed_words_list = ", ".join(deck_df["Kanji"].dropna().astype(str).tolist())
+ai_vocab_list = ", ".join(deck_df["Kanji"].astype(str) + " (" + deck_df["Italiano"].astype(str) + ")")
 
 # Filter by Study Mode
 if study_mode == "Unseen Only":
@@ -149,8 +150,8 @@ if "current_id" not in st.session_state or st.session_state.current_id not in de
 #     st.session_state.current_word = random.choice(list(vocab.keys()))
 
 # --- HELPER FUNCTIONS ---
-# (Keep your log_progress and check_translation_with_ai functions exactly as they are below here)
-def log_progress(vocab_id, direction, result):
+# (Keep your log_flashcard_progress and check_translation_with_ai functions exactly as they are below here)
+def log_flashcard_progress(vocab_id, direction, result):
     """Appends a new attempt to the 4-column Google Sheet."""
     existing_data = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], usecols=[0, 1, 2, 3], ttl=0)
     if len(existing_data.columns) != 4:
@@ -168,27 +169,68 @@ def log_progress(vocab_id, direction, result):
     updated_data = pd.concat([existing_data, new_row], ignore_index=True)
     conn.update(spreadsheet=st.secrets["SPREADSHEET_URL"], data=updated_data)
 
-def check_translation_with_ai(italian_sentence, user_japanese, allowed_vocab):
-    """Uses Gemini to grade the translation and enforce the vocab list."""
+def log_sentence_progress(practice_sentence, user_translation, direction, result):
+    """Logs sentence attempts to the specific 'Sentences' tab in Google Sheets."""
+    try:
+        existing_data = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], worksheet="Sentences", ttl=0)
+    except Exception:
+        existing_data = pd.DataFrame(columns=["Date", "Direction", "Practice Sentence", "User Translation", "Result"])
+        
+    if len(existing_data.columns) != 5:
+        existing_data = pd.DataFrame(columns=["Date", "Direction", "Practice Sentence", "User Translation", "Result"])
+    else:
+        existing_data.columns = ["Date", "Direction", "Practice Sentence", "User Translation", "Result"]
+        
+    new_row = pd.DataFrame([{
+        "Date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "Direction": direction,
+        "Practice Sentence": practice_sentence,
+        "User Translation": user_translation,
+        "Result": result
+    }])
+    updated_data = pd.concat([existing_data, new_row], ignore_index=True)
+    conn.update(spreadsheet=st.secrets["SPREADSHEET_URL"], worksheet="Sentences", data=updated_data)
+
+def generate_practice_sentence(allowed_vocab, direction):
+    """Asks Gemini to create a sentence exclusively using the allowed vocabulary."""
+    target_language = "Italian" if direction == "Italian ➔ Japanese" else "Japanese"
+    
     prompt = f"""
-    The user is learning Japanese. 
-    They were asked to translate the Italian sentence: '{italian_sentence}' into Japanese.
-    Their answer was: '{user_japanese}'.
+    You are a language teacher. Generate ONE short, simple practice sentence in {target_language}.
+    CRITICAL RULE: The underlying vocabulary of this sentence must ONLY use concepts and words found in this specific list: 
+    {allowed_vocab}
+    
+    You may use basic grammar particles naturally. 
+    Output ONLY the {target_language} sentence. Do not include romaji, translations, or any other text.
+    """
+    try:
+        response = model.generate_content(prompt)
+        return response.text.strip()
+    except Exception as e:
+        return f"Error generating sentence: {str(e)}"
+
+def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, direction):
+    """Grades the translation and enforces the vocab list."""
+    target_language = "Japanese" if direction == "Italian ➔ Japanese" else "Italian"
+    
+    prompt = f"""
+    The user is learning languages. 
+    They were asked to translate the sentence: '{target_sentence}' into {target_language}.
+    Their answer was: '{user_translation}'.
     
     Rules for grading:
     1. Check if the grammar and meaning are correct.
-    2. STRICT VOCABULARY CHECK: The user is ONLY allowed to use Japanese words that correspond to this vocabulary list: {allowed_vocab}. 
-       If they used an advanced word or kanji outside this list, mark it incorrect and tell them which word is forbidden.
+    2. STRICT VOCABULARY CHECK: If translating to Japanese, they must ONLY use words/kanji corresponding to this list: {allowed_vocab}. 
+       If they use advanced kanji outside this list, mark it incorrect and explain what they should have used instead.
     
     Reply in this exact format:
     [CORRECT] or [INCORRECT]
-    Explanation: (Write a 1-2 sentence explanation of any errors or forbidden words).
+    Explanation: (Write a 1-2 sentence explanation of any errors).
     """
     try:
         response = model.generate_content(prompt)
         return response.text
     except Exception as e:
-        # If Google's API crashes, it returns the exact error code to the UI instead of crashing the app
         return f"[INCORRECT]\nExplanation: Google API Error - {str(e)}"
 
 # --- UI LAYOUT ---
@@ -242,40 +284,81 @@ with tab1:
         col1, col2 = st.columns(2)
         with col1:
             if st.button("✅ Yes, I knew it"):
-                log_progress(current_row["ID"], direction, "Correct")
+                log_flashcard_progress(current_row["ID"], direction, "Correct")
                 st.success("Progress logged!")
                 st.session_state.flipped = False
                 st.session_state.current_id = random.choice(deck_df["ID"].tolist())
                 st.rerun()
         with col2:
             if st.button("❌ No, I missed it"):
-                log_progress(current_row["ID"], direction, "Incorrect")
+                log_flashcard_progress(current_row["ID"], direction, "Incorrect")
                 st.error("Progress logged! Try again next time.")
                 st.session_state.flipped = False
                 st.session_state.current_id = random.choice(deck_df["ID"].tolist())
                 st.rerun()
 
 with tab2:
-    st.header("Sentence Translation")
-    st.write("Translate this sentence using ONLY the approved vocabulary:")
+    def reset_sentence():
+        st.session_state.practice_sentence = ""
+        st.session_state.user_translation = ""
+
+    sentence_direction = st.radio(
+        "Translation direction:", ["Italian ➔ Japanese", "Japanese ➔ Italian"], horizontal=True, on_change=reset_sentence, key="sentence_dir"
+    )
+
+    if "practice_sentence" not in st.session_state:
+        st.session_state.practice_sentence = ""
+
+    # Generate Sentence Button
+    if st.button("✨ Generate Practice Sentence"):
+        with st.spinner("AI is crafting a sentence using your vocabulary..."):
+            st.session_state.practice_sentence = generate_practice_sentence(ai_vocab_list, sentence_direction)
+            # Clear previous translation attempt
+            st.session_state.user_translation_input = "" 
+        st.rerun()
+
+    # If a sentence has been generated, show the input field
+    if st.session_state.practice_sentence:
+        st.info(f"**Target Sentence:** {st.session_state.practice_sentence}")
+        
+        user_translation = st.text_area("Type your translation here:", key="user_translation_input")
+        
+        if st.button("Check Translation"):
+            if user_translation:
+                with st.spinner("Grading..."):
+                    feedback = check_translation_with_ai(st.session_state.practice_sentence, user_translation, ai_vocab_list, sentence_direction)
+                    
+                    if "[CORRECT]" in feedback.upper():
+                        st.success(feedback)
+                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Correct")
+                    else:
+                        st.error(feedback)
+                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Incorrect")
+            else:
+                st.warning("Please type a translation first.")  
+
+
     
-    target_sentence = "Io mangio la mela."
-    st.info(f"🇮🇹 **{target_sentence}**")
+    # st.header("Sentence Translation")
+    # st.write("Translate this sentence using ONLY the approved vocabulary:")
     
-    user_translation = st.text_input("Type your Japanese translation here:")
+    # target_sentence = "Io mangio la mela."
+    # st.info(f"🇮🇹 **{target_sentence}**")
     
-    if st.button("Check Translation"):
-        if user_translation:
-            with st.spinner("Checking grammar and vocabulary..."):
-                # Call Gemini API (Notice we added allowed_words_list as the third argument)
-                feedback = check_translation_with_ai(target_sentence, user_translation, allowed_words_list)
+    # user_translation = st.text_input("Type your Japanese translation here:")
+    
+    # if st.button("Check Translation"):
+    #     if user_translation:
+    #         with st.spinner("Checking grammar and vocabulary..."):
+    #             # Call Gemini API (Notice we added allowed_words_list as the third argument)
+    #             feedback = check_translation_with_ai(target_sentence, user_translation, allowed_words_list)
                 
-                # Display Results
-                if "[CORRECT]" in feedback.upper():
-                    st.success(feedback)
-                    log_progress(f"Translation: {target_sentence}", "Correct")
-                else:
-                    st.error(feedback)
-                    log_progress(f"Translation: {target_sentence}", "Incorrect")
-        else:
-            st.warning("Please enter a translation first.")
+    #             # Display Results
+    #             if "[CORRECT]" in feedback.upper():
+    #                 st.success(feedback)
+    #                 log_flashcard_progress(f"Translation: {target_sentence}", "Correct")
+    #             else:
+    #                 st.error(feedback)
+    #                 log_flashcard_progress(f"Translation: {target_sentence}", "Incorrect")
+    #     else:
+    #         st.warning("Please enter a translation first.")
