@@ -40,7 +40,7 @@ master_vocab["ID"] = pd.to_numeric(master_vocab["ID"], errors="coerce").fillna(0
 
 available_years = sorted(master_vocab["Anno"].dropna().unique().astype(int).tolist())
 selected_years = st.sidebar.multiselect(
-    "Select Year(s) to practice:",
+    "Scegli gli anni di cui vuoi il lessico:",
     options=available_years,
     default=available_years
 )
@@ -81,9 +81,21 @@ if not selected_years:
 # allowed_words_list = ", ".join(vocab.values())
 
 study_mode = st.sidebar.radio(
-    "Study Mode:",
+    "Modalità:",
     ["Tutti i vocaboli", "Da ripassare", "Solo nuovi"]
 )
+
+# Set a default threshold, then overwrite it if they select the Weak mode
+min_incorrect = 1
+if study_mode == "Da ripassare":
+    min_incorrect = st.sidebar.number_input(
+        "Numero minimo di errori fatti:", 
+        min_value=1, 
+        value=1, 
+        step=1,
+        help="Includi solo le carte che ho sbagliato a indovinare per almeno questo numero di volte."
+    )
+
 # --- 3. CALCULATE PROGRESS ON THE FLY ---
 # Load Event Log (ttl=0 ensures fresh data!)
 log_df = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], usecols=[0, 1, 2, 3], ttl=0)
@@ -327,7 +339,7 @@ with tab2:
         st.session_state.user_translation = ""
 
     sentence_direction = st.radio(
-        "Translation direction:", ["Italian ➔ Japanese", "Japanese ➔ Italian"], horizontal=True, on_change=reset_sentence, key="sentence_dir"
+        "Direzione linguistica:", ["Italian ➔ Japanese", "Japanese ➔ Italian"], horizontal=True, on_change=reset_sentence, key="sentence_dir"
     )
 
     if "practice_sentence" not in st.session_state:
