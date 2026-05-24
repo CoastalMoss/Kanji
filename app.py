@@ -197,24 +197,28 @@ def log_flashcard_progress(vocab_id, direction, result):
     updated_data = pd.concat([existing_data, new_row], ignore_index=True)
     conn.update(spreadsheet=st.secrets["SPREADSHEET_URL"], data=updated_data)
 
-def log_sentence_progress(practice_sentence, user_translation, direction, result):
+def log_sentence_progress(practice_sentence, user_translation, direction, result, explanation):
     """Logs sentence attempts to the specific 'Sentences' tab in Google Sheets."""
+    expected_columns = ["Date", "Direction", "Practice Sentence", "User Translation", "Result", "Explanation"]
     try:
         existing_data = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], worksheet="Sentences", ttl=0)
     except Exception:
-        existing_data = pd.DataFrame(columns=["Date", "Direction", "Practice Sentence", "User Translation", "Result"])
-        
-    if len(existing_data.columns) != 5:
-        existing_data = pd.DataFrame(columns=["Date", "Direction", "Practice Sentence", "User Translation", "Result"])
-    else:
-        existing_data.columns = ["Date", "Direction", "Practice Sentence", "User Translation", "Result"]
-        
+        existing_data = pd.DataFrame(columns=expected_columns)        
+  # Safely upgrade existing sheets that only have 5 columns without wiping data
+    for col in expected_columns:
+        if col not in existing_data.columns:
+            existing_data[col] = ""
+    
+    # Ensure columns are in the exact expected order
+    existing_data = existing_data[expected_columns]
+    
     new_row = pd.DataFrame([{
         "Date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "Direction": direction,
         "Practice Sentence": practice_sentence,
         "User Translation": user_translation,
-        "Result": result
+        "Result": result,
+        "Explanation": explanation
     }])
     updated_data = pd.concat([existing_data, new_row], ignore_index=True)
     conn.update(spreadsheet=st.secrets["SPREADSHEET_URL"], worksheet="Sentences", data=updated_data)
@@ -364,13 +368,20 @@ with tab2:
             if user_translation:
                 with st.spinner("Kuroneko sta controllando..."):
                     feedback = check_translation_with_ai(st.session_state.practice_sentence, user_translation, ai_vocab_list, sentence_direction)
-                    
+
                     if "[CORRECT]" in feedback.upper():
                         st.success(feedback)
-                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Correct")
+                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Correct", explanation)
                     else:
                         st.error(feedback)
-                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Incorrect")
+                        log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Incorrect", explanation)
+            
+                    # if "[CORRECT]" in feedback.upper():
+                    #     st.success(feedback)
+                    #     log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Correct")
+                    # else:
+                    #     st.error(feedback)
+                    #     log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Incorrect")
             else:
                 st.warning("Devi scrivere una traduzione.")  
 
