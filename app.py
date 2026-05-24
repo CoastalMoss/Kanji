@@ -229,7 +229,7 @@ def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, 
     [CORRECT] or [INCORRECT]
     Explanation: (Write a 1-2 sentence explanation of any errors).
     """
-   try:
+    try:
         response = client.models.generate_content(
             model='gemini-1.5-flash',
             contents=prompt
