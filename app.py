@@ -68,7 +68,7 @@ if not selected_years:
 study_mode = st.sidebar.radio(
     "Study Mode:",
     ["All Vocabulary", "Needs Practice (Weak)", "Unseen Only"]
-
+)
 # --- 3. CALCULATE PROGRESS ON THE FLY ---
 # Load Event Log (ttl=0 ensures fresh data!)
 log_df = conn.read(spreadsheet=st.secrets["SPREADSHEET_URL"], usecols=[0, 1, 2, 3], ttl=0)
