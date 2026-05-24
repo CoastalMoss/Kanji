@@ -114,6 +114,9 @@ for col in expected_cols:
 # Filter by Year
 deck_df = master_df[master_df["Anno"].isin(selected_years)]
 
+# NEW FIX: Generate the allowed words list for the AI dynamically based on the selected years!
+allowed_words_list = ", ".join(deck_df["Kanji"].dropna().astype(str).tolist())
+
 # Filter by Study Mode
 if study_mode == "Unseen Only":
     deck_df = deck_df[
