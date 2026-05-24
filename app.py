@@ -5,6 +5,16 @@ import pandas as pd
 from datetime import datetime
 import random
 
+
+# --- CONFIGURATION ---
+st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
+
+# Initialize the new Gemini API Client
+client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+
+# Establish Google Sheets Connection
+conn = st.connection("gsheets", type=GSheetsConnection)
+
 # --- DEBUG TOOL ---
 if st.sidebar.button("🔍 Debug: List Available Models"):
     with st.sidebar:
@@ -19,15 +29,6 @@ if st.sidebar.button("🔍 Debug: List Available Models"):
         except Exception as e:
             st.error(f"API Error: {e}")
 # ------------------
-
-# --- CONFIGURATION ---
-st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
-
-# Initialize the new Gemini API Client
-client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-
-# Establish Google Sheets Connection
-conn = st.connection("gsheets", type=GSheetsConnection)
 
 # --- VOCABULARY SELECTION UI ---
 # This creates a nice panel on the left side of the screen
