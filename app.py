@@ -232,7 +232,7 @@ def generate_practice_sentence(allowed_vocab, direction):
     CRITICAL RULE: The underlying vocabulary of this sentence must ONLY use concepts and words found in this specific list: 
     {allowed_vocab}
     
-    You may use basic grammar particles naturally. 
+    You are highly encouraged to use JLPT N3 level grammar points, conjugations, and natural particles.
     Output ONLY the {target_language} sentence. Do not include romaji, translations, or any other text.
     """
     try:
@@ -368,7 +368,11 @@ with tab2:
             if user_translation:
                 with st.spinner("Kuroneko sta controllando..."):
                     feedback = check_translation_with_ai(st.session_state.practice_sentence, user_translation, ai_vocab_list, sentence_direction)
-
+                    
+                    # Clean up the feedback to extract just the explanation string
+                    explanation = feedback.replace("[CORRECT]", "").replace("[INCORRECT]", "").strip()
+                    if explanation.startswith("Explanation:"):
+                        explanation = explanation.replace("Explanation:", "", 1).strip()
                     if "[CORRECT]" in feedback.upper():
                         st.success(feedback)
                         log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Correct", explanation)
