@@ -156,8 +156,9 @@ if study_mode == "Solo nuovi":
 elif study_mode == "Da ripassare":
     # Show cards where total Incorrect > total Correct
     total_incorrect = deck_df["Italian ➔ Japanese_Incorrect"] + deck_df["Japanese ➔ Italian_Incorrect"]
-    total_correct = deck_df["Italian ➔ Japanese_Correct"] + deck_df["Japanese ➔ Italian_Correct"]
-    deck_df = deck_df[total_incorrect > total_correct]
+    
+    # Filter the deck to only show cards where their wrong attempts meet or exceed the threshold
+    deck_df = deck_df[total_incorrect >= min_incorrect]
 
 if deck_df.empty:
     st.success("🎉 Ai filtri che hai impostato non corrisponde nessun kanji! Significa che li hai imparati tutti, o che devi cambiare le impostazioni dei filtri.")
