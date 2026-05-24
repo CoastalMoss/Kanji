@@ -295,25 +295,28 @@ with tab1:
     # 4. Display the card using our dynamic front/back variables
     if not st.session_state.flipped:
         st.subheader(front_text)
-        if st.button("Flip Card"):
+        if st.button("Volta la flashcard 🐾", key="flip_btn"):
             st.session_state.flipped = True
             st.rerun()
     else:
-        st.subheader(back_text)
-        st.write("Did your friend get it right?")
+        # Show both the original prompt and the correct answer
+        st.caption(f"Prompt: {front_text}")
+        st.subheader(f"👉 {back_text}")
+        
+        st.write("Hai indovinato?")
         
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("✅ Yes, I knew it"):
+            if st.button("✅ Sì, mi ricordavo 😸"):
                 log_flashcard_progress(current_row["ID"], direction, "Correct")
-                st.success("Progress logged!")
+                st.success("Progresso salvato!")
                 st.session_state.flipped = False
                 st.session_state.current_id = random.choice(deck_df["ID"].tolist())
                 st.rerun()
         with col2:
-            if st.button("❌ No, I missed it"):
+            if st.button("❌ No, non la sapevo 😿"):
                 log_flashcard_progress(current_row["ID"], direction, "Incorrect")
-                st.error("Progress logged! Try again next time.")
+                st.error("Progresso salvato! Andrà meglio la prossima volta.")
                 st.session_state.flipped = False
                 st.session_state.current_id = random.choice(deck_df["ID"].tolist())
                 st.rerun()
