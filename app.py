@@ -7,7 +7,7 @@ import random
 
 
 # --- CONFIGURATION ---
-st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
+st.set_page_config(page_title="Impara i kanji con Kuroneko 🐱", page_icon="🇯🇵")
 
 # Initialize the new Gemini API Client
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
@@ -15,24 +15,24 @@ client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 # Establish Google Sheets Connection
 conn = st.connection("gsheets", type=GSheetsConnection)
 
-# --- DEBUG TOOL ---
-if st.sidebar.button("🔍 Debug: List Available Models"):
-    with st.sidebar:
-        try:
-            st.write("Models available to your API Key:")
-            # Ask Google for the list of available models
-            models = client.models.list()
-            for m in models:
-                # Only show models that support text generation
-                if "generateContent" in m.supported_actions:
-                    st.code(m.name)
-        except Exception as e:
-            st.error(f"API Error: {e}")
-# ------------------
+# # --- DEBUG TOOL ---
+# if st.sidebar.button("🔍 Debug: List Available Models"):
+#     with st.sidebar:
+#         try:
+#             st.write("Models available to your API Key:")
+#             # Ask Google for the list of available models
+#             models = client.models.list()
+#             for m in models:
+#                 # Only show models that support text generation
+#                 if "generateContent" in m.supported_actions:
+#                     st.code(m.name)
+#         except Exception as e:
+#             st.error(f"API Error: {e}")
+# # ------------------
 
 # --- VOCABULARY SELECTION UI ---
 # This creates a nice panel on the left side of the screen
-st.sidebar.header("⚙️ Settings")
+st.sidebar.header("⚙️ Impostazioni")
 
 master_vocab = pd.read_csv("Kanji anni 1, 2 e 3.tsv", sep="\t")
 # Ensure the ID column is strictly treated as integers (failsafe)
@@ -46,7 +46,7 @@ selected_years = st.sidebar.multiselect(
 )
 
 if not selected_years:
-    st.sidebar.warning("👈 Please select at least one year!")
+    st.sidebar.warning("Seleziona almeno un anno! 😾")
     st.stop()
 
 # Let the user pick multiple options. By default, "Terzo Anno" is selected.
@@ -82,7 +82,7 @@ if not selected_years:
 
 study_mode = st.sidebar.radio(
     "Study Mode:",
-    ["All Vocabulary", "Needs Practice (Weak)", "Unseen Only"]
+    ["Tutti i vocaboli", "Da ripassare", "Solo nuovi"]
 )
 # --- 3. CALCULATE PROGRESS ON THE FLY ---
 # Load Event Log (ttl=0 ensures fresh data!)
@@ -134,21 +134,21 @@ allowed_words_list = ", ".join(deck_df["Kanji"].dropna().astype(str).tolist())
 ai_vocab_list = ", ".join(deck_df["Kanji"].astype(str) + " (" + deck_df["Italiano"].astype(str) + ")")
 
 # Filter by Study Mode
-if study_mode == "Unseen Only":
+if study_mode == "Solo nuovi":
     deck_df = deck_df[
         (deck_df["Italian ➔ Japanese_Correct"] == 0) & 
         (deck_df["Italian ➔ Japanese_Incorrect"] == 0) & 
         (deck_df["Japanese ➔ Italian_Correct"] == 0) & 
         (deck_df["Japanese ➔ Italian_Incorrect"] == 0)
     ]
-elif study_mode == "Needs Practice (Weak)":
+elif study_mode == "Da ripassare":
     # Show cards where total Incorrect > total Correct
     total_incorrect = deck_df["Italian ➔ Japanese_Incorrect"] + deck_df["Japanese ➔ Italian_Incorrect"]
     total_correct = deck_df["Italian ➔ Japanese_Correct"] + deck_df["Japanese ➔ Italian_Correct"]
     deck_df = deck_df[total_incorrect > total_correct]
 
 if deck_df.empty:
-    st.success("🎉 No kanji match these filters! You've mastered them or need to change settings.")
+    st.success("🎉 Ai filtri che hai impostato non corrisponde nessun kanji! Significa che li hai imparati tutti, o che devi cambiare le impostazioni dei filtri.")
     st.stop()
     
 # --- STATE MANAGEMENT ---
@@ -258,10 +258,10 @@ def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, 
 st.title("Impara i kanji con Kuroneko 🐱")
 
 # Create two tabs for the two features
-tab1, tab2 = st.tabs(["Flashcards", "Sentence Translation"])
+tab1, tab2 = st.tabs(["Flashcard", "Traduzione di frasi"])
 
 with tab1:
-    st.header("Vocab Flashcard")
+    st.header("Lessico in flashcard")
     
     # 1. Callback function to reset the card if the user changes direction mid-guess
     def reset_card():
@@ -269,7 +269,7 @@ with tab1:
 
     # 2. Add the radio button for direction selection
     direction = st.radio(
-        "Guessing direction:", 
+        "Direzione linguistica:", 
         ["Japanese ➔ Italian", "Italian ➔ Japanese"], 
         horizontal=True,
         on_change=reset_card
@@ -300,7 +300,7 @@ with tab1:
             st.rerun()
     else:
         # Show both the original prompt and the correct answer
-        st.caption(f"Prompt: {front_text}")
+        st.caption(f"Da indovinare: {front_text}")
         st.subheader(f"👉 {back_text}")
         
         st.write("Hai indovinato?")
@@ -334,8 +334,8 @@ with tab2:
         st.session_state.practice_sentence = ""
 
     # Generate Sentence Button
-    if st.button("✨ Generate Practice Sentence"):
-        with st.spinner("AI is crafting a sentence using your vocabulary..."):
+    if st.button("✨ Genera frase da tradurre"):
+        with st.spinner("Kuroneko sta scrivendo una frase usando i vocaboli in lista..."):
             st.session_state.practice_sentence = generate_practice_sentence(ai_vocab_list, sentence_direction)
             # Clear previous translation attempt
             st.session_state.user_translation_input = "" 
@@ -345,11 +345,11 @@ with tab2:
     if st.session_state.practice_sentence:
         st.info(f"**Target Sentence:** {st.session_state.practice_sentence}")
         
-        user_translation = st.text_area("Type your translation here:", key="user_translation_input")
+        user_translation = st.text_area("Scrivi qui la tua traduzione:", key="user_translation_input")
         
-        if st.button("Check Translation"):
+        if st.button("Controlla la tua traduzione"):
             if user_translation:
-                with st.spinner("Grading..."):
+                with st.spinner("Kuroneko sta controllando..."):
                     feedback = check_translation_with_ai(st.session_state.practice_sentence, user_translation, ai_vocab_list, sentence_direction)
                     
                     if "[CORRECT]" in feedback.upper():
@@ -359,7 +359,7 @@ with tab2:
                         st.error(feedback)
                         log_sentence_progress(st.session_state.practice_sentence, user_translation, sentence_direction, "Incorrect")
             else:
-                st.warning("Please type a translation first.")  
+                st.warning("Devi scrivere una traduzione.")  
 
 
     
