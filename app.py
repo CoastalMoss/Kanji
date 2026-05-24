@@ -168,7 +168,7 @@ def log_progress(vocab_id, direction, result):
     updated_data = pd.concat([existing_data, new_row], ignore_index=True)
     conn.update(spreadsheet=st.secrets["SPREADSHEET_URL"], data=updated_data)
 
-def check_translation_with_ai(italian_sentence, user_japanese):
+def check_translation_with_ai(italian_sentence, user_japanese, allowed_vocab):
     """Uses Gemini to grade the translation and enforce the vocab list."""
     prompt = f"""
     The user is learning Japanese. 
@@ -177,15 +177,19 @@ def check_translation_with_ai(italian_sentence, user_japanese):
     
     Rules for grading:
     1. Check if the grammar and meaning are correct.
-    2. STRICT VOCABULARY CHECK: The user is ONLY allowed to use Japanese words that correspond to this vocabulary list: {allowed_words_list}. 
+    2. STRICT VOCABULARY CHECK: The user is ONLY allowed to use Japanese words that correspond to this vocabulary list: {allowed_vocab}. 
        If they used an advanced word or kanji outside this list, mark it incorrect and tell them which word is forbidden.
     
     Reply in this exact format:
     [CORRECT] or [INCORRECT]
     Explanation: (Write a 1-2 sentence explanation of any errors or forbidden words).
     """
-    response = model.generate_content(prompt)
-    return response.text
+    try:
+        response = model.generate_content(prompt)
+        return response.text
+    except Exception as e:
+        # If Google's API crashes, it returns the exact error code to the UI instead of crashing the app
+        return f"[INCORRECT]\nExplanation: Google API Error - {str(e)}"
 
 # --- UI LAYOUT ---
 st.title("🇯🇵 Japanese Practice")
@@ -263,8 +267,8 @@ with tab2:
     if st.button("Check Translation"):
         if user_translation:
             with st.spinner("Checking grammar and vocabulary..."):
-                # Call Gemini API
-                feedback = check_translation_with_ai(target_sentence, user_translation)
+                # Call Gemini API (Notice we added allowed_words_list as the third argument)
+                feedback = check_translation_with_ai(target_sentence, user_translation, allowed_words_list)
                 
                 # Display Results
                 if "[CORRECT]" in feedback.upper():
