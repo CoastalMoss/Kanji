@@ -220,7 +220,7 @@ def generate_practice_sentence(allowed_vocab, direction):
     """
     try:
         response = client.models.generate_content(
-            model='gemini-1.5-flash',
+            model='gemini-2.5-flash',
             contents=prompt
         )
         return response.text.strip()
@@ -247,7 +247,7 @@ def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, 
     """
     try:
         response = client.models.generate_content(
-            model='gemini-1.5-flash',
+            model='gemini-2.5-flash',
             contents=prompt
         )
         return response.text
