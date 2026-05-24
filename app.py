@@ -1,5 +1,5 @@
 import streamlit as st
-import google.generativeai as genai
+from google import genai
 from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 from datetime import datetime
@@ -8,9 +8,8 @@ import random
 # --- CONFIGURATION ---
 st.set_page_config(page_title="Japanese Study App", page_icon="🇯🇵")
 
-# Configure Gemini API
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+# Initialize the new Gemini API Client
+client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
 # Establish Google Sheets Connection
 conn = st.connection("gsheets", type=GSheetsConnection)
@@ -204,7 +203,10 @@ def generate_practice_sentence(allowed_vocab, direction):
     Output ONLY the {target_language} sentence. Do not include romaji, translations, or any other text.
     """
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         return response.text.strip()
     except Exception as e:
         return f"Error generating sentence: {str(e)}"
@@ -227,8 +229,11 @@ def check_translation_with_ai(target_sentence, user_translation, allowed_vocab, 
     [CORRECT] or [INCORRECT]
     Explanation: (Write a 1-2 sentence explanation of any errors).
     """
-    try:
-        response = model.generate_content(prompt)
+   try:
+        response = client.models.generate_content(
+            model='gemini-1.5-flash',
+            contents=prompt
+        )
         return response.text
     except Exception as e:
         return f"[INCORRECT]\nExplanation: Google API Error - {str(e)}"
